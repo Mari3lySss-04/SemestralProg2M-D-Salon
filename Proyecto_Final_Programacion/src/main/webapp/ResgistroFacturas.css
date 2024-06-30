@@ -1,0 +1,216 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f2e6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#Servicios{
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 150px;
+}
+
+input[type="text"],
+select {
+    flex: 1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.cantidad-control button {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.cantidad-control input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.btn-remove {
+    background-color: transparent;
+    color: #f00;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-add {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 14px;
+    margin-top: 5px;
+}
+
+.btn-add:hover {
+    background-color: #45a049;
+}
+
+.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+.factura-resumen {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.resumen-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.resumen-item span {
+    font-size: 16px;
+}
+
+.precio {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.codigo {
+    width: 50px;  /* Ajusta el ancho para que siempre sea el mismo, independientemente del contenido */
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;  /* Ajusta el margen para que el código se alinee correctamente */
+}
+
+.submit-group {
+    text-align: center;
+}
+
+.payment-methods {
+    padding: 1px 30px 1px 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Distribuye el espacio equitativamente en 3 columnas */
+    justify-items: center; /* Alinea horizontalmente al centro */
+    gap: 10px; /* Espacio opcional entre los elementos */
+}
+
+.payment-methods input[type="radio"] {
+    display: none;
+}
+
+.payment-methods label {
+    background-color: #e7e7e7;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.payment-methods input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.btn-payment {
+    display: grid;
+    place-items: center;
+}
+
+.factura-resumen {
+    margin-top: 20px;
+}
+
+.resumen-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.btn-submit {
+    margin-top: 20px;
+}
+

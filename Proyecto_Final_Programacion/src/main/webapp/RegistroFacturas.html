@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Factura</title>
+    <link rel="stylesheet" href="ResgistroFacturas.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Registro de Factura</h1>
+    <form action="RegistroFacturas.jsp" method="post">
+        <div class="form-group">
+            <label for="cedula_cliente">Cédula Cliente:</label>
+            <input type="text" id="cedula_cliente" name="cedula_cliente" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cedula_colaboradora">Cédula Colaboradora:</label>
+            <input type="text" id="cedula_colaboradora" name="cedula_colaboradora" required>
+        </div>
+
+        <div id="productos_servicios_container">
+            <div class="Servicios">
+                <h3 type="text" id="Servicios">Servicios/Producto</h3>
+            </div>
+            <div class="form-group producto-servicio-item">
+                <span class="codigo">0000</span>
+                <select id="servicio_1" name="servicios[]" required onchange="actualizarPrecioYCodigo(this)">
+                    <option value="" data-precio="0" data-codigo="0000">Seleccionar</option>
+                    <option value="corte_cabello" data-precio="15.00" data-codigo="0001">Corte de Cabello</option>
+                    <option value="tinte_cabello" data-precio="20.00" data-codigo="0002">Tinte de Cabello</option>
+                    <option value="alisado_cabello" data-precio="30.00" data-codigo="0003">Alisado de Cabello</option>
+                    <option value="mechas" data-precio="25.00" data-codigo="0004">Mechas</option>
+                    <option value="blower" data-precio="10.00" data-codigo="0005">Blower</option>
+                    <option value="tratamiento_cabello" data-precio="35.00" data-codigo="0006">Tratamiento para Cabello</option>
+                    <option value="peinados" data-precio="20.00" data-codigo="0007">Peinados</option>
+                    <option value="maquillaje" data-precio="25.00" data-codigo="0008">Maquillaje</option>
+                    <option value="manicura" data-precio="15.00" data-codigo="0009">Manicura</option>
+                    <option value="pedicura" data-precio="20.00" data-codigo="0010">Pedicura</option>
+                    <option value="pintura_unas" data-precio="10.00" data-codigo="0011">Pintura de Uñas</option>
+                    <option value="uñas_acrilicas_gel" data-precio="30.00" data-codigo="0012">Uñas Acrílicas/Gel</option>
+                    <option value="depilacion" data-precio="25.00" data-codigo="0013">Depilación</option>
+                </select>
+                <div class="cantidad-control">
+                    <button type="button" class="btn-minus" onclick="actualizarCantidad(this, -1)">-</button>
+                    <input type="number" name="cantidad[]" value="1" min="1" max="40" required>
+                    <button type="button" class="btn-plus" onclick="actualizarCantidad(this, 1)">+</button>
+                </div>
+                <span class="precio">$0.00</span>
+                <button type="button" class="btn-remove" onclick="eliminarServicio(this)">x</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="button" class="btn-add" onclick="agregarProductoServicio()">Agregar servicio</button>
+        </div>
+
+        <div class="form-group">
+            <div class="payment-methods">
+                <input type="radio" id="efectivo" name="metodo_pago" value="efectivo" required>
+                <label for="efectivo" class="btn-payment">Efectivo</label>
+
+                <input type="radio" id="tarjeta_credito" name="metodo_pago" value="tarjeta_credito" required>
+                <label for="tarjeta_credito" class="btn-payment">Tarjeta Visa/Mastercard</label>
+
+                <input type="radio" id="tarjeta_debito" name="metodo_pago" value="tarjeta_debito" required>
+                <label for="tarjeta_debito" class="btn-payment">Tarjeta Clave</label>
+            </div>
+        </div>
+
+        <div class="factura-resumen">
+            <div class="resumen-item">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="resumen-item">
+                <span>Impuesto (7%):</span>
+                <span id="impuesto">$0.00</span>
+            </div>
+            <div class="resumen-item">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+            </div>
+        </div>
+
+        <div class="form-group submit-group">
+            <input type="submit" value="Registrar Factura" class="btn-submit">
+        </div>
+    </form>
+</div>
+<script>
+    let contador = 2;
+
+    function agregarProductoServicio() {
+        const container = document.getElementById('productos_servicios_container');
+        const div = document.createElement('div');
+        div.className = 'form-group producto-servicio-item';
+        div.innerHTML = `
+            <span class="codigo">0000</span>
+            <select id="servicio_${contador}" name="servicios[]" required onchange="actualizarPrecioYCodigo(this)">
+                <option value="" data-precio="0" data-codigo="0000">Seleccionar</option>
+                <option value="corte_cabello" data-precio="15.00" data-codigo="0001">Corte de Cabello</option>
+                <option value="tinte_cabello" data-precio="20.00" data-codigo="0002">Tinte de Cabello</option>
+                <option value="alisado_cabello" data-precio="30.00" data-codigo="0003">Alisado de Cabello</option>
+                <option value="mechas" data-precio="25.00" data-codigo="0004">Mechas</option>
+                <option value="blower" data-precio="10.00" data-codigo="0005">Blower</option>
+                <option value="tratamiento_cabello" data-precio="35.00" data-codigo="0006">Tratamiento para Cabello</option>
+                <option value="peinados" data-precio="20.00" data-codigo="0007">Peinados</option>
+                <option value="maquillaje" data-precio="25.00" data-codigo="0008">Maquillaje</option>
+                <option value="manicura" data-precio="15.00" data-codigo="0009">Manicura</option>
+                <option value="pedicura" data-precio="20.00" data-codigo="0010">Pedicura</option>
+                <option value="pintura_unas" data-precio="10.00" data-codigo="0011">Pintura de Uñas</option>
+                <option value="uñas_acrilicas_gel" data-precio="30.00" data-codigo="0012">Uñas Acrílicas/Gel</option>
+                <option value="depilacion" data-precio="25.00" data-codigo="0013">Depilación</option>
+            </select>
+            <div class="cantidad-control">
+                <button type="button" class="btn-minus" onclick="actualizarCantidad(this, -1)">-</button>
+                <input type="number" name="cantidad[]" value="1" min="1" max="40" required>
+                <button type="button" class="btn-plus" onclick="actualizarCantidad(this, 1)">+</button>
+            </div>
+            <span class="precio">$0.00</span>
+            <button type="button" class="btn-remove" onclick="eliminarServicio(this)">x</button>
+        `;
+        container.appendChild(div);
+        contador++;
+        actualizarTotal();
+    }
+
+    function actualizarCantidad(button, increment) {
+        const input = button.parentElement.querySelector('input[type="number"]');
+        let value = parseInt(input.value) + increment;
+        if (value < 1) value = 1;
+        if (value > 40) value = 40;
+        input.value = value;
+        actualizarTotal();
+    }
+
+    function actualizarPrecioYCodigo(select) {
+        const precio = select.options[select.selectedIndex].dataset.precio;
+        const codigo = select.options[select.selectedIndex].dataset.codigo;
+        const item = select.closest('.producto-servicio-item');
+        item.querySelector('.precio').innerText = `$${(precio * item.querySelector('input[type="number"]').value).toFixed(2)}`;
+        item.querySelector('.codigo').innerText = codigo;
+        actualizarTotal();
+    }
+
+    function eliminarServicio(button) {
+        const item = button.parentElement;
+        item.remove();
+        actualizarTotal();
+    }
+
+    function actualizarTotal() {
+        let subtotal = 0;
+        const items = document.querySelectorAll('.producto-servicio-item');
+        items.forEach(item => {
+            const cantidad = parseInt(item.querySelector('input[type="number"]').value);
+            const precio = parseFloat(item.querySelector('select').options[item.querySelector('select').selectedIndex].dataset.precio);
+            subtotal += cantidad * precio;
+            item.querySelector('.precio').innerText = `$${(precio * cantidad).toFixed(2)}`;
+        });
+        const impuesto = subtotal * 0.07;
+        const total = subtotal + impuesto;
+        document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById('impuesto').innerText = `$${impuesto.toFixed(2)}`;
+        document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+    }
+</script>
+</body>
+</html>

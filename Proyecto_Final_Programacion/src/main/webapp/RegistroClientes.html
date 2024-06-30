@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Clientes</title>
+    <link rel="stylesheet" href="ResgistroClientes.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Registro de Clientes</h1>
+    <form action="RegistroClientes.jsp" method="post">
+        <div class="form-group">
+            <label for="p_nombre_cliente">Primer Nombre:</label>
+            <input type="text" id="p_nombre_cliente" name="p_nombre_cliente" required>
+        </div>
+
+        <div class="form-group">
+            <label for="s_nombre_cliente">Segundo Nombre:</label>
+            <input type="text" id="s_nombre_cliente" name="s_nombre_cliente">
+        </div>
+
+        <div class="form-group">
+            <label for="p_apellido_cliente">Primer Apellido:</label>
+            <input type="text" id="p_apellido_cliente" name="p_apellido_cliente" required>
+        </div>
+
+        <div class="form-group">
+            <label for="s_apellido_cliente">Segundo Apellido:</label>
+            <input type="text" id="s_apellido_cliente" name="s_apellido_cliente">
+        </div>
+
+        <div class="form-group">
+            <label for="cedula_cliente">Cédula:</label>
+            <input type="text" id="cedula_cliente" name="cedula_cliente" pattern="\d{15}" title="Debe contener 10 dígitos" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo_telefono_1">Tipo de Teléfono:</label>
+            <select id="tipo_telefono_1" name="tipo_telefono_1" required>
+                <option value="">Seleccionar</option>
+                <option value="personal">Personal</option>
+                <option value="casa">Casa</option>
+                <option value="trabajo">Trabajo</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="telefono_1_container">
+            <label for="telefono_1">Número de Teléfono 1:</label>
+            <input type="tel" id="telefono_1" name="telefono_1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo_telefono_2">Tipo de Teléfono:</label>
+            <select id="tipo_telefono_2" name="tipo_telefono_2">
+                <option value="">Seleccionar</option>
+                <option value="personal">Personal</option>
+                <option value="casa">Casa</option>
+                <option value="trabajo">Trabajo</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="telefono_2_container" style="display: none;">
+            <label for="telefono_2">Número de Teléfono 2:</label>
+            <input type="tel" id="telefono_2" name="telefono_2">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Registrar">
+        </div>
+    </form>
+</div>
+<script>
+    function actualizarOpciones() {
+        var select1 = document.getElementById('tipo_telefono_1');
+        var select2 = document.getElementById('tipo_telefono_2');
+
+        var valor1 = select1.value;
+        var valor2 = select2.value;
+
+        var opciones1 = select1.options;
+        var opciones2 = select2.options;
+
+        for (var i = 0; i < opciones1.length; i++) {
+            opciones2[i].style.display = 'block';
+            if (opciones1[i].value === valor1 && valor1 !== "") {
+                opciones2[i].style.display = 'none';
+            }
+        }
+
+        for (var i = 0; i < opciones2.length; i++) {
+            opciones1[i].style.display = 'block';
+            if (opciones2[i].value === valor2 && valor2 !== "") {
+                opciones1[i].style.display = 'none';
+            }
+        }
+
+        var tel1 = document.getElementById('telefono_1_container');
+        var tel2 = document.getElementById('telefono_2_container');
+        tel1.style.display = valor1 ? 'block' : 'none';
+        tel2.style.display = valor2 ? 'block' : 'none';
+    }
+
+    document.getElementById('tipo_telefono_1').addEventListener('change', actualizarOpciones);
+    document.getElementById('tipo_telefono_2').addEventListener('change', actualizarOpciones);
+</script>
+</body>
+</html>
