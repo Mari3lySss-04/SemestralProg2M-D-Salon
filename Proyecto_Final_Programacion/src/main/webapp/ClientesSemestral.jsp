@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Clientes - Resultado</title>
-    <link rel="stylesheet" href="ResgistroClientes.css">
+    <link rel="stylesheet" href="ClientesSemestral.css">
     <style>
         .message {
             padding: 20px;
@@ -72,7 +72,7 @@
             cs.close();
 
             out.println("<div class='message success'>Registro exitoso. Serás redirigido en breve...</div>");
-            response.setHeader("Refresh", "2; URL=RegistroClientes.html");
+            response.setHeader("Refresh", "2; URL=ClientesSemestral.html");
         } catch (Exception e) {
             out.println("<div class='message error'>Error: " + e.getMessage() + "</div>");
         } finally {

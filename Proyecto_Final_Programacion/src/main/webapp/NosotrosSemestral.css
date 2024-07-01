@@ -1,0 +1,28 @@
+.Grupo {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+.container_integrantes {
+    margin: 40px; /* Se ajusta independientemente del body */
+    padding: 20px; /* Padding externo adicional */
+    background: #fff;
+    border-radius: 8px;
+}
+
+.member {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.member img {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}

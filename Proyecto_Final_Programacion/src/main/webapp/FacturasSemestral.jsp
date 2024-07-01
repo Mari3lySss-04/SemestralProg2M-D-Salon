@@ -88,7 +88,7 @@
             cs.close();
 
             out.println("<div class='message success'>Registro de factura exitoso. Serás redirigido en breve...</div>");
-            response.setHeader("Refresh", "2; URL=RegistroFacturas.html");
+            response.setHeader("Refresh", "2; URL=FacturasSemestral.html");
         } catch (Exception e) {
             out.println("<div class='message error'>Error: " + e.getMessage() + "</div>");
         } finally {

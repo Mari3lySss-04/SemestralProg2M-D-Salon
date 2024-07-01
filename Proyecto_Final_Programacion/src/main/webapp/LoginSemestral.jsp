@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado de Inicio de Sesión</title>
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="LoginSemestral.css">
 </head>
 <body>
 <div class="container">
@@ -52,7 +52,7 @@
         <p><%= message %></p>
         <script>
             setTimeout(function() {
-                window.location.href = '<%= success ? "home.html" : "Login.html" %>';
+                window.location.href = '<%= success ? "home.html" : "LoginSemestral.html" %>';
             }, 1000);
         </script>
     </div>
