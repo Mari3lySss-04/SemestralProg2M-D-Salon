@@ -1,0 +1,299 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+header{
+    background:#C8CFA0;
+    padding: 20px 0;
+    height: 240px;
+    
+}
+
+.admin{
+   margin-right: 10px;
+   text-align: center;
+}
+
+.admin p{
+    font-family: 'Courier New', Courier;
+}
+
+/* top, right, bottom, left */
+
+.admin li{
+    background-color: #E5EDB7;
+    padding: 10px 25px;
+    margin-right: 10px;
+    float: right;
+
+
+}
+
+.admin a{
+    color: #000000;
+}
+
+.admin a:hover{
+    color: #C78C19;
+    text-decoration: underline;
+    
+}
+
+.caja{
+    width: 1300px;
+    margin: 0 auto;
+}
+/*se le da un ancho de 1300 px, el margin 0 auto centra el div horizontalmente en el header y se coloca los margenes automaticos*/
+
+.logo{
+    border-radius: 40px;
+}
+
+
+.caja ul{
+    text-align: right;
+}
+
+.caja li{
+    display: inline;
+    margin: 1px 0 0 15px;
+}
+/*hace que el li se haga elemento de linea permitiendo colocar los demas al lado*/
+
+main{
+    background: #e1e3cb;
+    padding: 0 0 10px 0;
+}
+
+.subheader{
+    background-color: #FFFFFF;
+    padding: 8px;
+
+}
+
+.subheader ul{
+    margin: 20px;
+    margin-left: auto;
+}
+
+.subheader h2{
+    margin-left: 50px;
+    margin-right: 95px;
+    display: inline-block;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+
+}
+
+
+.subheader li{
+    display: inline;
+    margin: 0 0 0 15px;
+    padding: 10px 20px;
+    margin-right: 4px;
+    text-align: center;
+    background-color: #C8CFA0;
+}
+
+
+.subheader a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.subheader a:hover{
+    color: #ffffff;
+}
+
+.subheader li:hover{
+    border: 2px solid #acb289;
+    
+}
+
+
+
+.ContedoresLinks {
+    text-align: center;
+}
+
+
+.ContedoresLinks li{
+    display: inline-block;
+    background-color: #FFFFFF;
+    text-align: center;
+    width: 20%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 10px 0 0 0;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.4);
+    
+}
+/*vertical aling alinea los elementos que estan dentro desde arriba*/
+
+.imagenescont{
+    width: 20%;
+}
+
+.ContedoresLinks p{
+    text-align: center;
+    background-color: #E5EDB7;
+    padding: 5px;
+    margin: 8px 0 0 0;
+}
+
+
+.ContedoresLinks h2{
+    font-weight: 700;
+    margin: 2px;
+    font-family:Arial;
+    font-style: italic;
+}
+
+/*noticias*/
+
+
+.Noticias{
+    margin: 12px 0 ;
+    text-align: center;
+    background-color: #ECECEC;
+    padding: 20px;
+}
+
+.Noticias h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 26px;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 15px 25px;
+    background-color: #FFFFFF;
+    text-align: left;
+    margin-bottom: 10px;
+
+}
+
+
+.Noticias img{
+    width: 100% ;
+    height: 250px; 
+}
+
+.Noticias li{
+    display: inline-block;
+    background-color: #FFFFFF;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    box-sizing: border-box;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding-bottom: 8px;
+}
+/*hace que el cont se ajuste igual sin impotar el contenido, padding y border, osea hace que sea simetrico*/
+
+.Noticias h2{
+    color: #000000;
+    font-size: 21px;
+    padding: 19px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Noticias p{
+    text-align: left;
+    font-size: 18px;
+    color: #5b5656;
+    padding: 8px 26px;
+    font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Noticias a, .textvideo a{
+    display: inline-block;
+    text-decoration: none;
+    color: #D4AF37;
+    transition: transform 0.3s ease;
+}
+
+.Noticias a:hover, .textvideo a:hover{
+    color: #a8791b;
+    transform: translateY(-5px);
+}
+/*el transform: translateY(-5px); hace el enlace a se mueva verticalmente 5px y el transition: transform 0.3s ease; hace que la transicion se haga de manera suave, asi como el a debe ser inline-block para que actue como elemento de linea y se pueda mover verticalmente  */
+
+
+
+.video{
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px;
+    text-align: left;
+    width: 80%;
+}
+
+.contvideo, .textvideo{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contvideo{
+    width: 560px;
+}
+
+.textvideo{
+    width: calc(100% - 579px); 
+    text-align: center;
+}
+
+/*el width de div de video hace que ocupe el 80%, al div del video le da el tamaño de 560px y el div del texto se hace sacando de calculo  que se resta el ancho del iframe y el margen*/
+
+
+
+/*pie de pagina*/
+
+footer{
+    text-align: center;
+    background: #78ABA8;
+    padding-top: 20px;
+}
+
+
+.Piepagina a{
+    color: #FFFFFF;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.Piepagina a:hover{
+    color: #D4AF37;
+    font-size: 20.5px;
+    font-weight: 300;
+    
+    
+}
+
+.Piepagina li{
+    display: inline;
+    margin: 0 0 0 15px;
+    text-align: center;
+    padding: 30px 20px;
+    
+}
+.Piepagina p{
+    color: #FFFFFF;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.Copyright{
+    background-color: #85C2BE;
+    padding: 12px;
+    display: inline-block;
+    margin-bottom: 14px;
+}
